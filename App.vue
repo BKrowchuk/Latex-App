@@ -129,7 +129,7 @@
               </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="grid grid-cols-1 gap-4 mb-4">
               <div>
                 <label class="block text-sm font-medium mb-2">Title</label>
                 <input
