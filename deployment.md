@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide explains how to deploy your Vue.js LaTeX app to GitHub Pages using the `gh-pages` branch with a pull request workflow.
+This guide explains how to deploy your Vue.js LaTeX app to GitHub Pages using the `gh-pages` branch with an automated workflow.
 
 ## Prerequisites
 
@@ -38,33 +38,29 @@ Your `package.json` is already configured with the necessary scripts:
 
 ## Deployment Workflow
 
-### Recommended Workflow: Pull Request to gh-pages
+### Automated Deployment: Push to Main Branch
 
-The `.github/workflows/deploy.yml` is configured to automatically deploy when you create a pull request to the `gh-pages` branch.
+The `.github/workflows/deploy.yml` is configured to automatically deploy when you push changes to the `main` branch.
 
 **Workflow:**
 
-1. Make changes to your code in a feature branch
-2. Create a pull request targeting the `gh-pages` branch
+1. Make changes to your code in the main branch (or create a feature branch and merge to main)
+2. Push your changes to the main branch
 3. The GitHub Action will automatically build and deploy
-4. Review the changes in the deployed preview
-5. Merge the pull request to update the live site
+4. Your changes will be live on GitHub Pages within a few minutes
 
 **Steps:**
 
 ```bash
-# Create a feature branch
-git checkout -b feature/new-feature
-
 # Make your changes
 # ... edit files ...
 
-# Commit and push
+# Commit and push to main branch
 git add .
 git commit -m "Add new feature"
-git push origin feature/new-feature
+git push origin main
 
-# Create pull request to gh-pages branch on GitHub
+# GitHub Action will automatically deploy
 ```
 
 ### Alternative: Manual Deployment
@@ -102,13 +98,12 @@ For example, if your username is `john` and repository is `latex-app`:
 https://john.github.io/latex-app/
 ```
 
-## Benefits of Pull Request Workflow
+## Benefits of Automated Deployment
 
-- **Preview Changes**: See your changes before they go live
-- **Review Process**: Code can be reviewed before deployment
-- **Rollback Capability**: Easy to revert changes by reverting the PR
-- **Better Collaboration**: Team members can review and approve changes
-- **Safer Deployments**: No accidental deployments from direct pushes
+- **Quick Deployment**: Changes are live on GitHub Pages within a few minutes
+- **No Manual Steps**: No need to create pull requests or wait for review
+- **Automatic Build**: GitHub Action automatically builds and deploys
+- **Consistent Deployment**: Ensures consistent deployment process
 
 ## Troubleshooting
 
@@ -130,11 +125,12 @@ https://john.github.io/latex-app/
 - Wait a few minutes after deployment (GitHub Pages can take time to update)
 - Check that the `gh-pages` branch contains your built files
 
-### Pull request not triggering deployment
+### Automated deployment not triggering
 
-- Ensure the PR is targeting the `gh-pages` branch
+- Ensure the push is to the `main` branch
 - Check that the workflow file is in the correct location (`.github/workflows/deploy.yml`)
 - Verify the workflow syntax is correct
+- Check GitHub Actions tab in your repository to see if the workflow is running
 
 ## File Structure After Deployment
 
@@ -153,11 +149,10 @@ gh-pages/
 
 To update your deployed app:
 
-1. Create a feature branch from `main`
-2. Make your code changes
-3. Create a pull request targeting `gh-pages` branch
-4. Review the changes in the deployed preview
-5. Merge the pull request to update the live site
+1. Make your code changes in the main branch (or create a feature branch and merge to main)
+2. Push your changes to the main branch
+3. The GitHub Action will automatically build and deploy
+4. Your changes will be live on GitHub Pages within a few minutes
 
 ## Local Development
 
