@@ -3,5 +3,5 @@ import vue from "@vitejs/plugin-vue";
 
 export default defineConfig({
   plugins: [vue()],
-  base: "/Latex-App/",
+  // base: "/Latex-App/", // Commented out for local development
 });
